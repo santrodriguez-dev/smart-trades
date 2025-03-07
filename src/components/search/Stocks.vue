@@ -37,8 +37,6 @@ const onSelected = (stock: Body) => {
   showSearchModal.value = false;
   selectedStock.value = stock.symbol;
 };
-
-// onMounted(() => getStocks());
 </script>
 
 <template>
@@ -47,12 +45,12 @@ const onSelected = (stock: Body) => {
     <h4 v-if="error">{{ error }}</h4>
     <h4 v-if="!error && !isLoading && stocks.length === 0">No stocks</h4>
 
-    <div class="grid grid-cols-3 gap-2">
+    <div class="grid sm:grid-cols-3 gap-2">
       <button
         v-for="stock in stocks"
         :key="stock.symbol"
         @click="onSelected(stock)"
-        class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 cursor-pointer"
+        class="block p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 cursor-pointer"
       >
         <h5
           class="mb-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white break-words"

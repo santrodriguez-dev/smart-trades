@@ -15,13 +15,13 @@
 <script setup lang="ts">
 import { ref, watch, computed, onMounted, onUnmounted } from "vue";
 import InputSearch from "./InputSearch.vue";
-import Stocks from "../Stocks.vue";
+import Stocks from "./Stocks.vue";
 import { useSearchStocks } from "@/composables/useSearchStocks";
 
 const dialogRef = ref<HTMLDialogElement | null>();
 const isMounted = ref(false);
 const emit = defineEmits(["close"]);
-const { showSearchModal } = useSearchStocks();
+const { showSearchModal, inputSearch } = useSearchStocks();
 
 onMounted(() => {
   isMounted.value = true;
@@ -45,13 +45,16 @@ watch(showSearchModal, (currentState) => {
   dialogRef.value?.close();
 });
 
-const onClose = () => emit("close"); // onClose
+const onClose = () => {
+  inputSearch.value = "";
+  emit("close");
+}; // onClose
 </script>
 
 <style scoped>
 @reference "tailwindcss";
 
 dialog::backdrop {
-  @apply fixed top-0 left-0 w-screen h-screen z-10 bg-black opacity-30;
+  @apply fixed top-0 left-0 w-screen h-screen z-10 bg-black opacity-50;
 }
 </style>

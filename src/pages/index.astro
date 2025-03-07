@@ -1,6 +1,7 @@
 ---
 import Search from "@/components/search/Search.vue";
 import Layout from "@/layouts/Layout.astro";
+import Header from "@/ui/Header.astro";
 ---
 
 <Layout>
@@ -8,6 +9,7 @@ import Layout from "@/layouts/Layout.astro";
   <main
     class="max-w-4xl m-auto h-full flex flex-col items-center justify-center"
   >
+    <Header />
     <Search client:idle />
     <!-- <Stocks client:load /> -->
   </main>
