@@ -1,0 +1,57 @@
+#Api endpoints: https://rapidapi.com/sparior/api/mboum-finance/playground/apiendpoint_35eab7a1-3780-4a8c-818c-1bb3480d22be
+
+@baseUrl=https://yahoo-finance15.p.rapidapi.com/api
+@rapidApiKey=b1eb7a8dc2msh60bdfe6b614bc03p1d8d71jsnd0d4b9819bba
+
+GET {{baseUrl}}/v2/markets/tickers?type=STOCKS&page=1 HTTP/1.1
+X-Rapidapi-Key: {{rapidApiKey}}
+
+###
+GET {{baseUrl}}/v1/markets/search
+    ?search=APPL HTTP/1.1
+X-Rapidapi-Key: {{rapidApiKey}}
+
+###
+GET {{baseUrl}}/v1/markets/quote
+    ?symbol=AAPL&type=STOCKS HTTP/1.1
+X-Rapidapi-Key: {{rapidApiKey}}
+
+
+###
+GET {{baseUrl}}/v1/markets/stock/quotes
+    ?symbol=AAPL HTTP/1.1
+X-Rapidapi-Key: {{rapidApiKey}}
+
+###
+GET {{baseUrl}}/v1/markets/screener
+    ?most_actives=trending HTTP/1.1
+X-Rapidapi-Key: {{rapidApiKey}}
+
+###
+GET {{baseUrl}}/v1/markets/stock/quotes
+    ?symbol=AAPL%2CMSFT%2C%5ESPX%2C%5ENYA%2CGAZP.ME%2CSIBN.ME%2CGEECEE.NS HTTP/1.1
+X-Rapidapi-Key: {{rapidApiKey}}
+
+###
+GET {{baseUrl}}/v1/markets/stock/modules
+    ?ticker=AAPL&module=asset-profile HTTP/1.1
+X-Rapidapi-Key: {{rapidApiKey}}
+
+###
+GET {{baseUrl}}/v1/markets/stock/modules
+    ?symbol=AAPL&module=financial-data HTTP/1.1
+X-Rapidapi-Key: {{rapidApiKey}}
+
+###
+GET {{baseUrl}}/v1/markets/stock/modules
+    ?symbol=AAPL&module=statistics HTTP/1.1
+X-Rapidapi-Key: {{rapidApiKey}}
+
+###
+GET {{baseUrl}}/v1/markets/stock/history
+    ?symbol=AAPL&interval=1d&diffandsplits=false HTTP/1.1
+X-Rapidapi-Key: {{rapidApiKey}}
+
+###
+# GET {{baseUrl}}/v2/markets/news?tickers=AAPL&type=ALL HTTP/1.1
+# X-Rapidapi-Key: {{rapidApiKey}}
