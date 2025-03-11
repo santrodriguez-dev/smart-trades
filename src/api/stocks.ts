@@ -59,6 +59,40 @@ const searchMarket = (search: string): Promise<SearchMarketsResponse> => {
     })
 }
 
+const getFinancialData = (stock: string): Promise<any> => {
+  return fetch(
+    `${BASE_URL}/v1/markets/stock/modules?symbol=${stock}&module=financial-data`,
+    {
+      method: "GET",
+      headers: {
+        "x-rapidapi-key": X_RAPIDAPI_KEY,
+      },
+    }
+  )
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json()
+    })
+}
 
+const getStockProfileData = (stock: string): Promise<any> => {
+  return fetch(
+    `${BASE_URL}/v1/markets/stock/modules?ticker=${stock}&module=asset-profile`,
+    {
+      method: "GET",
+      headers: {
+        "x-rapidapi-key": X_RAPIDAPI_KEY,
+      },
+    }
+  )
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json()
+    })
+}
 
-export { getStocksAPI, getmarketsScreener, searchMarket }
+export { getStocksAPI, getmarketsScreener, searchMarket, getFinancialData, getStockProfileData }

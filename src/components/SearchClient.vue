@@ -1,20 +1,17 @@
 <script setup>
 import { watch } from "vue";
-import ButtonSearch from "./ButtonSearch.vue";
-import SearchDialog from "./SearchDialog.vue";
+import ButtonSearch from "@/components/ButtonSearch.vue";
+import SearchDialog from "./search-dialog/SearchDialog.vue";
+import StockData from "./StockData.vue";
 import { useSearchStocks } from "@/composables/useSearchStocks";
 
-const { showSearchModal, selectedStock } = useSearchStocks();
-
-watch(selectedStock, () => {
-  console.log(selectedStock.value);
-});
+const { showSearchModal } = useSearchStocks();
 </script>
 
 <template>
-  <section class="">
+  <section>
     <ButtonSearch @click="showSearchModal = !showSearchModal" />
     <SearchDialog @close="showSearchModal = false" />
-    {{ selectedStock }}
+    <StockData />
   </section>
 </template>

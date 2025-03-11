@@ -1,5 +1,5 @@
 ---
-import Search from "@/components/search/Search.vue";
+import SearchClient from "@/components/SearchClient.vue";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/ui/Header.astro";
 ---
@@ -10,7 +10,7 @@ import Header from "@/ui/Header.astro";
     class="max-w-4xl m-auto h-full flex flex-col items-center justify-center"
   >
     <Header />
-    <Search client:idle />
+    <SearchClient client:idle />
     <!-- <Stocks client:load /> -->
   </main>
   <!-- <Footer /> -->

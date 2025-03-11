@@ -73,7 +73,9 @@ interface Props {
 }
 
 const { classes } = defineProps<Props>();
-const emit = defineEmits(["close"]);
+const emit = defineEmits<{
+  (e: "close"): void;
+}>();
 const { inputSearch } = useSearchStocks();
 
 const inputRef = ref<HTMLInputElement | null>(null);
